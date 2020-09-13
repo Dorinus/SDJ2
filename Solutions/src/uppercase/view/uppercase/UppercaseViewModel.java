@@ -36,4 +36,10 @@ public class UppercaseViewModel {
     public StringProperty errorProperty() {
         return error;
     }
+
+    public void clear(){
+        reply.setValue("");
+        request.setValue("");
+        error.setValue("");
+    }
 }
