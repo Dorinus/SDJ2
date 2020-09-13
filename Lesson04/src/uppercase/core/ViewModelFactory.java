@@ -1,6 +1,6 @@
 package uppercase.core;
 
-import uppercase.view.uppercase.UppercaseViewModel;
+import uppercase.view.UppercaseViewModel;
 
 public class ViewModelFactory
 {

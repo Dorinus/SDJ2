@@ -1,4 +1,4 @@
-package uppercase.view.uppercase;
+package uppercase.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

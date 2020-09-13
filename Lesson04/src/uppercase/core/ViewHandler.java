@@ -4,7 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import uppercase.view.uppercase.UppercaseViewController;
+import uppercase.view.UppercaseViewController;
 
 import java.io.IOException;
 
