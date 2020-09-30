@@ -5,7 +5,7 @@ import uppercase.model.TextConverterModel;
 
 public class ModelFactory
 {
-  TextConverter textConverter;
+  private TextConverter textConverter;
 
   public TextConverter getTextConverter()
   {
