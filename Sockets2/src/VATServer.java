@@ -15,12 +15,13 @@ public class VATServer
       System.out.println("Connected to: VAT Server");
 
       ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream()) ;
+      ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
       double summ = (double) inFromClient.readObject();
       System.out.println("Summ of: " + summ +" received");
 
       double vat = summ*0.25;
 
-      ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
+
       outToClient.writeUnshared(vat);
     }
   }

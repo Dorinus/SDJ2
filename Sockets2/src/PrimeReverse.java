@@ -10,37 +10,38 @@ public class PrimeReverse
   {
     ServerSocket serverSocket = new ServerSocket(3000);
 
-    while (true){
+    while (true)
+    {
       Socket socket = serverSocket.accept();
 
       ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream());
+      ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
       System.out.println("Connected to: PrimeReverse Server");
 
+      Object data = inFromClient.readObject();
 
-      int number = (int) inFromClient.readObject();
-      boolean flag = false;
-      for(int i = 2; i <= number/2; ++i)
+      if (data instanceof Integer)
       {
-        if(number % i == 0)
+        int number = (int) data;
+        boolean flag = true;
+        for (int i = 2; i <= number / 2; ++i)
         {
-          flag = true;
-          break;
+          if (number % i == 0)
+          {
+            flag = false;
+            break;
+          }
         }
+        outToClient.writeUnshared(flag);
+
       }
+      else if (data instanceof String)
+      {
+        String text = (String) data;
+        String reversed = new StringBuilder(text).reverse().toString();
 
-      int reversed = 0;
-
-      while(number != 0) {
-        int digit = number % 10;
-        reversed = reversed * 10 + digit;
-        number /= 10;
+        outToClient.writeUnshared(reversed);
       }
-
-      ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
-      outToClient.writeUnshared(flag);
-      outToClient.writeUnshared(reversed);
-
-
     }
   }
 }
