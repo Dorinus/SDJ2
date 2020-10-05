@@ -1,4 +1,4 @@
-package transferobjects;
+package shared;
 
 import java.io.Serializable;
 

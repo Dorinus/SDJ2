@@ -1,6 +1,6 @@
 package client;
 
-import transferobjects.Message;
+import shared.Message;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
